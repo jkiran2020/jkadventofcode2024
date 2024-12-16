@@ -1,0 +1,26 @@
+list1 = [3,4,2,1,3,3]
+list2 = [4,3,5,3,9,3]
+
+#part1 solution:
+#--------------
+list1_sorted = sorted(list1) # list1.sort()
+list2_sorted = sorted(list2) # list2.sort()
+
+final = 0
+for i in range(len(list1_sorted)):
+    distance = abs(list1_sorted[i] - list2_sorted[i])  
+    final += distance  
+
+print(final)
+
+#part2 solution:
+#--------------
+count_dict = {}
+for num in list2:
+    count_dict[num] = count_dict.get(num, 0) + 1
+print(count_dict)
+
+# for num in list1:
+#     print(count_dict.get(num,0) * num)
+score = sum(count_dict.get(num,0) * num for num in list1)
+print(score)
